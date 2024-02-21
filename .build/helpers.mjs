@@ -177,7 +177,8 @@ export const generateIconsPreview = async function(files, destFile, {
   columnsCount = 19,
   paddingOuter = 7,
   color = '#354052',
-  background = '#fff'
+  background = '#fff',
+  png = true
 } = {}) {
 
   const padding = 20,
@@ -218,7 +219,10 @@ export const generateIconsPreview = async function(files, destFile, {
   const svgContent = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 ${width} ${height}" width="${width}" height="${height}" style="color: ${color}"><rect x="0" y="0" width="${width}" height="${height}" fill="${background}"></rect>\n${svgContentSymbols}\n${svgContentIcons}\n</svg>`
 
   fs.writeFileSync(destFile, svgContent)
-  await createScreenshot(destFile)
+  
+  if (png) {
+    await createScreenshot(destFile)
+  }
 }
 
 
@@ -283,7 +287,7 @@ export const getCompileOptions = () => {
 
   if (fs.existsSync('../compile-options.json')) {
     try {
-      const tempOptions = require('../compile-options.json')
+      const tempOptions = JSON.parse(fs.readFileSync('../compile-options.json').toString())
 
       if (typeof tempOptions !== 'object') {
         throw 'Compile options file does not contain an json object'

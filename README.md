@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-    A set of <!--icons-count-->3401<!--/icons-count--> free MIT-licensed high-quality SVG icons for you to use in your web projects. Each icon is designed on a 24x24 grid and a 2px stroke.
+    A set of <!--icons-count-->4962<!--/icons-count--> free MIT-licensed high-quality SVG icons for you to use in your web projects. Each icon is designed on a 24x24 grid and a 2px stroke.
 <p>
 
 <p align="center">
@@ -36,7 +36,7 @@
 npm install @tabler/icons --save
 ```
 
-or just [download from Github](https://github.com/tabler/tabler-icons/releases).
+or just [download from GitHub](https://github.com/tabler/tabler-icons/releases).
 
 ## Usage
 
@@ -112,7 +112,7 @@ const MyComponent = () => {
 }
 ```
 
-`@tabler/icons-react` exports it's own type declarations for usage with React and Typescript.
+`@tabler/icons-react` exports its own type declarations for usage with React and Typescript.
 
 For more details, see the [documentation](https://github.com/tabler/tabler-icons/tree/master/packages/icons-react).
 
@@ -122,7 +122,19 @@ Vue components available through [`@tabler/icons-vue`](https://www.npmjs.com/pac
 
 ```vue
 <template>
+  <!-- basic usage -->
   <IconHome />
+
+  <!-- set `stroke` color -->
+  <IconHome color="red"/>
+  <IconHome stroke="red"/>
+
+  <!-- set custom `width` and `height` -->
+  <IconHome size="36"/>
+
+  <!-- set `stroke-width` -->
+  <IconHome strokeWidth="2"/>
+  <IconHome stroke-width="2"/>
 </template>
 
 <script>
@@ -133,6 +145,19 @@ export default {
   components: { IconHome }
 };
 </script>
+```
+
+or with `<script setup>`
+
+```vue
+<script setup>
+// Import Vue component
+import { IconHome } from '@tabler/icons-vue';
+</script>
+
+<template>
+  <IconHome color="red" size="36" strokeWidth="2"/>
+</template>
 ```
 
 For more details, see the [documentation](https://github.com/tabler/tabler-icons/tree/master/packages/icons-vue).
@@ -175,7 +200,7 @@ After importing the _IconsModule_ in your feature or shared module, use the icon
 <i-tabler name="brand-github" class="someclass"></i-tabler>
 ```
 
-`angular-tabler-icons` exports it's own type declarations for usage with Typescript.
+`angular-tabler-icons` exports its own type declarations for usage with Typescript.
 
 For more usage documentation refer to [the official documentation](https://github.com/pierreavn/angular-tabler-icons).
 
@@ -208,7 +233,7 @@ All files included in `@tabler/icons` npm package are available over a CDN.
 #### Iconfont
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons@latest/iconfont/tabler-icons.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
 ```
 
 To load a specific version replace `latest` with the desired version number.

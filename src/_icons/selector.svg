@@ -1,7 +1,8 @@
 ---
-tags: [arrows]
+tags: [arrows, select, dropdown, chevron, down, south, bottom, direction, input]
 version: "1.0"
 unicode: "eb1d"
+category: Arrows
 ---
 <svg>
   <path d="M8 9l4 -4l4 4" />

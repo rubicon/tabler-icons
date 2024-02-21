@@ -1,6 +1,6 @@
 {
   "name": "@tabler/icons-svelte",
-  "version": "2.4.0",
+  "version": "2.47.0",
   "license": "MIT",
   "author": "codecalm",
   "description": "A set of free MIT-licensed high-quality SVG icons for you to use in your web projects.",
@@ -18,14 +18,22 @@
     "directory": "packages/icons-svelte"
   },
   "type": "module",
-  "main": "dist/esm/tabler-icons-svelte.js",
-  "module": "dist/esm/tabler-icons-svelte.js",
+  "main": "dist/esm/packages/icons-svelte/src/tabler-icons-svelte.js",
+  "module": "dist/esm/packages/icons-svelte/src/tabler-icons-svelte.js",
   "svelte": "dist/svelte/tabler-icons-svelte.js",
   "typings": "dist/tabler-icons-svelte.d.ts",
   "sideEffects": false,
   "files": [
     "dist"
   ],
+  "exports": {
+    ".": {
+      "types": "./dist/tabler-icons-svelte.d.ts",
+      "svelte": "./dist/svelte/tabler-icons-svelte.js"
+    },
+    "./dist/svelte/Icon.svelte": "./dist/svelte/Icon.svelte",
+    "./dist/svelte/icons/*.svelte": "./dist/svelte/icons/*.svelte"
+  },
   "scripts": {
     "build": "pnpm run clean && pnpm run copy:license && pnpm run build:icons && pnpm run build:bundles && pnpm build:strip",
     "build:icons": "node build.mjs",
@@ -36,7 +44,7 @@
     "test": "pnpm run clean && pnpm run build:icons && jest --env=jsdom"
   },
   "dependencies": {
-    "@tabler/icons": "2.4.0"
+    "@tabler/icons": "2.47.0"
   },
   "devDependencies": {
     "@testing-library/svelte": "^3.0.3",
@@ -53,7 +61,7 @@
     "typescript": "^4.9.3"
   },
   "peerDependencies": {
-    "svelte": "^3.49.0"
+    "svelte": ">=3 <5"
   },
   "jest": {
     "transform": {

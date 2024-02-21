@@ -40,8 +40,10 @@ files.forEach(function(file, i) {
       .replace(/xmlns="http:\/\/www.w3.org\/2000\/svg"/g, '')
       .replace(/<path d="M0 0h24v24H0z"\/>"/g, '')
       .replace(/<path stroke="red" stroke-width=".1" d="[^"]+"\s?\/>/g, '')
+      .replace(/<path[^>]*fill-opacity=".1"[^>]*\/>/g, '')
       .replace(/<path[^>]*stroke="red"[^>]*\/>/gs, '')
       .replace(/<circle[^>]*stroke="red"[^>]*\/>/gs, '')
+      .replace(/<path[^>]*fill="red"[^>]*\/>/gs, '')
       .replace(/<g[^>]*stroke="red"[^>]*>.*?<\/g>/gs, '')
       .replace(/<svg\s+>/gs, '<svg>')
 
@@ -64,6 +66,9 @@ files.forEach(function(file, i) {
   } else if (filename.match(/\-filled$/)) {
     fileData = fileData
         .replace(/---\n---/g, '---\ncategory: Filled\n---')
+  } else if (filename.match(/brand\-/)) {
+    fileData = fileData
+        .replace(/---\n---/g, '---\ncategory: Brand\n---')
   }
 
   fs.writeFileSync(`./src/_icons/${filename}.svg`, fileData)
